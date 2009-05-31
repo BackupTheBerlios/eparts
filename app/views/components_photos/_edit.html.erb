@@ -1,0 +1,14 @@
+<% form_for(@components_photo) do |f| %>
+  <%= f.error_messages %>
+
+  <%= hidden_field_tag "components_photo[component_id]", @component.id %>
+  <p>
+    <%= f.label t('.number') %><br />
+    <%= f.text_field :photo_id %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), components_photos_path %>

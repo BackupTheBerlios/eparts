@@ -1,0 +1,26 @@
+<% form_for([@prize, @order]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('orders.edit.prize') %><br />
+    <%= select( :order, :prize_id, @prizes.collect{ |c| [ t('.prize_select', :prize => number_to_currency( c.value ), :count => c.quantity, :name => c.component.name, :supplier => c.supplier.name), c.id] }, :selected => @prize.id ) %>
+    <%= check_box( 'all_orders', 'checked', {}, 'yes', 'no' ) %>
+  </p>
+  <p>
+    <%= f.label t('orders.edit.count') %><br />
+    <%= f.text_field :count, :size => 5 %>
+  </p>
+  <p>
+    <%= f.label t('orders.edit.state') %><br />
+    <%= select( :order, :order_state_id, OrderState.find( :all, :order => :id ).collect{ |c| [t(%Q{orders.text.#{c.name}}), c.id] } ) %>
+  </p>
+  <p>
+    <%= f.label t('orders.edit.date') %><br />
+    <%= date_select( :date, :val, :default => @order.updated_at ) %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), orders_path %>

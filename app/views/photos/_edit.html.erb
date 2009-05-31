@@ -1,0 +1,15 @@
+<% form_for( @photo, :html => { :multipart => true } ) do |f| %>
+  <%= f.error_messages %>
+
+  <%= image_tag( url_for( :action => "image", :id => @photo ) ) %>
+
+  <p>
+    <%= f.label t('.file') %>
+    <%= f.file_field :photo_file %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), photos_path %>

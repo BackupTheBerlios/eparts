@@ -1,0 +1,21 @@
+<% form_for(@kicad_component) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('.housing') %><br />
+    <%= select( :kicad_component, :kicad_housing_id, KicadHousing.find(:all, :order => 'name').collect{ |c| [c.name, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.label t('.component') %><br />
+    <%= select( :kicad_component, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), kicad_components_path %>

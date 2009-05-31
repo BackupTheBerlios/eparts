@@ -1,0 +1,13 @@
+<% form_for(@project_state) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label 'Name' %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), project_states_path %>

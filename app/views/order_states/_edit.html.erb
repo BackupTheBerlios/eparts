@@ -1,0 +1,13 @@
+<% form_for(@order_state) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), order_states_path %>

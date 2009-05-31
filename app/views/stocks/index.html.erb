@@ -1,0 +1,21 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr align="left">
+    <th><%= t '.component' %></th>
+    <th><%= t 'remark' %></th>
+    <th><%= t '.housing' %></th>
+    <th><%= t '.count' %></th>
+  </tr>
+
+  <% for s in @stocks %>
+    <tr>
+      <td><%= link_to s.component.name, edit_component_path(s.component) %></td>
+      <td><%=h s.component.remark %></td>
+      <td><%=h s.component.component_housing.name %></td>
+      <td><%= link_to s.count, edit_stock_path(s) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('.new_stock'), new_stock_path %>

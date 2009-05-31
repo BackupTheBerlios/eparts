@@ -1,0 +1,46 @@
+<% form_for(@supplier) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('.url') %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+
+  <% if @prizes.length > 0 %>
+    <b><%= t '.orders' %></b>
+    <table>
+      <tr>
+        <td><%= t '.component' %></td>
+        <td><%= t 'remark' %></td>
+        <td><%= t '.housing' %></td>
+        <td><%= t '.prize' %></td>
+        <td><%= t '.count' %></td>
+        <td><%= t '.state' %></td>
+        <td><%= t '.date' %></td>
+        <td><%= t '.id' %></td>
+      </tr>
+
+      <% for p in @prizes %>
+        <tr>
+          <td><%= link_to p.component.name, edit_component_path(p.component) %></td>
+          <td><%=h p.component.remark %></td>
+          <td><%=h p.component.component_housing.name %></td>
+          <td><%= link_to number_to_currency( p.value ), edit_component_prize_path(p.component, p) %></td>
+          <td><%=h p.quantity %></td>
+          <td><%=h p.order.order_state.name %></td>
+          <td><%= l p.end %></td>
+          <td><%= link_to p.order.id, edit_order_path(p.order) %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+<% end %>
+
+<%= link_to t('edit.back'), suppliers_path %>

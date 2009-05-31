@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prize_id: 1
+  count: 1
+  order_state_id: 1
+
+two:
+  prize_id: 2
+  count: 2
+  order_state_id: 2

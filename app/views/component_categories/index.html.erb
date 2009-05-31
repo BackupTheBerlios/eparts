@@ -1,0 +1,15 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr>
+    <th><%= t 'name' %></th>
+  </tr>
+
+  <% for c in @component_categories %>
+    <tr>
+      <td><%= link_to c.name, edit_component_category_path(c) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('component_categories.index.new_category'), new_component_category_path %>

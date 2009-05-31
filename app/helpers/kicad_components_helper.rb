@@ -1,0 +1,2 @@
+module KicadComponentsHelper
+end

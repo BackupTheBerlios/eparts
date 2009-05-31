@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  component_id: 1
+  count: 1
+
+two:
+  project_id: 2
+  component_id: 2
+  count: 3

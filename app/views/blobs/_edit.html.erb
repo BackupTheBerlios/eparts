@@ -1,0 +1,13 @@
+<% form_for( @blob, :html => { :multipart => true } ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('.file') %>
+    <%= f.file_field :blob_file %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), blobs_path %>

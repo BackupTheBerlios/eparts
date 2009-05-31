@@ -1,0 +1,17 @@
+<% form_for(@stock) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('.component') %><br />
+    <%= select( :stock, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.label t('.count') %><br />
+    <%= f.text_field :count %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), stocks_path %>

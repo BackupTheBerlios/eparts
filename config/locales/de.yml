@@ -1,0 +1,433 @@
+# German translations for Ruby on Rails 
+# by Clemens Kofler (clemens@railway.at)
+
+de:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %e. %B %Y, %H:%M Uhr"
+      short: "%e. %B, %H:%M Uhr"
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+      date: "%d.%m.%Y"
+
+    am: "vormittags"
+    pm: "nachmittags"
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        zero: 'weniger als 1 Sekunde'
+        one: 'weniger als 1 Sekunde'
+        other: 'weniger als {{count}} Sekunden'
+      x_seconds:
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      less_than_x_minutes:
+        zero: 'weniger als 1 Minute'
+        one: 'weniger als eine Minute'
+        other: 'weniger als {{count}} Minuten'
+      x_minutes:
+        one: '1 Minute'
+        other: '{{count}} Minuten'
+      about_x_hours:
+        one: 'etwa 1 Stunde'
+        other: 'etwa {{count}} Stunden'
+      x_days:
+        one: '1 Tag'
+        other: '{{count}} Tage'
+      about_x_months:
+        one: 'etwa 1 Monat'
+        other: 'etwa {{count}} Monate'
+      x_months:
+        one: '1 Monat'
+        other: '{{count}} Monate'
+      about_x_years:
+        one: 'etwa 1 Jahr'
+        other: 'etwa {{count}} Jahre'
+      over_x_years:
+        one: 'mehr als 1 Jahr'
+        other: 'mehr als {{count}} Jahre'
+    prompts:
+      second: "Sekunden"
+      minute: "Minuten"
+      hour: "Stunden"
+      day: "Tag"
+      month: "Monat"
+      year: "Jahr"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n %u'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Konnte dieses {{model}} Objekt nicht speichern: 1 Fehler."
+          other:  "Konnte dieses {{model}} Objekt nicht speichern: {{count}} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+      messages:
+        inclusion: "ist kein gültiger Wert"
+        exclusion: "ist nicht verfügbar"
+        invalid: "ist nicht gültig"
+        confirmation: "stimmt nicht mit der Bestätigung überein"
+        accepted: "muss akzeptiert werden"
+        empty: "muss ausgefüllt werden"
+        blank: "muss ausgefüllt werden"
+        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
+        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
+        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
+        taken: "ist bereits vergeben"
+        not_a_number: "ist keine Zahl"
+        greater_than: "muss größer als {{count}} sein"
+        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
+        equal_to: "muss genau {{count}} sein"
+        less_than: "muss kleiner als {{count}} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
+        odd: "muss ungerade sein"
+        even: "muss gerade sein"
+      models:
+
+  name: "Name"
+  remark: "Bemerkung"
+
+  edit:
+    back: "Zurück"
+    create: "Erstellen"
+    edit: "Ändern"
+
+  blobs:
+    index:
+      title: "Dokumente"
+      id: "Id"
+      used: "Verwendung"
+      new_blob: "Neues Dokument"
+    edit:
+      title: "Dokument {{name}} ändern"
+      file: "Datei:"
+    new:
+      title: "Neues Dokument"
+      file: "Datei:"
+
+  blobs_components:
+    index:
+      title: "Alle Bauteildokumente"
+      new_blob: "Neues Bauteidokument anlegen"
+    edit:
+      title: "Datei für {{name}} ändern"
+      file: "Dateinummer"
+    new:
+      title: "Neue Dokument für "
+
+  components:
+    index:
+      title: "Bauteile"
+      housing: "Bauform"
+      category: "Kategorie"
+      stock: "Bestand"
+      order: "Bestellung"
+      new_component: "Neues Bauteil anlegen"
+    edit:
+      title: "Bauteil {{name}} ändern"
+      category: "Bauteilkategorie"
+      housing: "Bauform"
+      stock: "Bestand einschliesslich Bestellungen: "
+      all_kicad: "Alle Kicad-Bauteile"
+      housing: "Bauform"
+      all_prizes: "Alle Bauteilpreise"
+      prize: "Preis"
+      count: "Menge"
+      order: "Bestellung"
+      supplier: "Lieferant"
+      begin: "Start"
+      end: "Ende"
+      all_projects: "Alle Projektverwendungen"
+      project: "Projekt"
+      new_kicad_component: "Neues Kicad-Bauteil erstellen"
+      new_prize: "Neuen Preis erstellen"
+      stock_path: "Bestandskorrektur"
+      new_photo: "Neues Bild"
+      new_blob: "Neues Dokument"
+      current_order: "{{count}} Stück {{order}}"
+      new_order: "bestellen"
+    new:
+      title: "Neues Bauteil"
+
+  component_categories:
+    index:
+      title: "Bauteilkategorien"
+      new_category: "Neue Bauteilkategorie erstellen"
+    edit:
+      title: "Bauteilkategorie ändern"
+    new:
+      title: "Neue Beuteilkategorie erstellen"
+
+  component_housings:
+    index:
+      title: "Gehäusebauformen"
+      new_housing: "Neue Bauform erstellen"
+    edit:
+      title: "Bauform ändern"
+    new:
+      title: "Neue Gehäusebauform erstellen"
+
+  components_photos:
+    index:
+      title: "Alle Bauteilbilder"
+      component: "Bauteil"
+      photo: "Bild"
+      new_photo: "Neues Bauteilbild anlegen"
+    edit:
+      title: "Bild für {{name}} ändern"
+      number: "Bildnummer"
+    new:
+      title: "Neues Bild für "
+
+  configuration:
+    index:
+      title: "Konfiguration"
+      housings: "Bauformen"
+      kicad_components: "Kicad-Bauteile"
+      kicad_housings: "Kicad-Bauformen"
+      component_categories: "Bauteilkategorien"
+      order_states: "Best.zustandsnamen"
+      project_states: "Projektzustandsnamen"
+
+  kicad_components:
+    index:
+      title: "Kicad-Komponenten"
+      housing: "Bauform"
+      component: "Bauteil"
+      new_kicad_component: "Neue Kicad-Komponente anlegen"
+    edit:
+      title: "Kicad-Komponente ändern"
+      housing: "Kicad-Bauform"
+      component: "Bauteil"
+    new:
+      title: "Neue Kicad-Komponente erstellen"
+
+  kicad_housings:
+    index:
+      title: "Kicad-Gehäusebauformen"
+      new_kicad_housing: "Neue Kicad-Bauform erstellen"
+    edit:
+      title: "Kicad-Bauform ändern"
+    new:
+      title: "Neue Kicad-Gehäusebauform erstellen"
+
+  layouts:
+    application:
+      title: "Elektronikprojekte"
+      components: "Bauteile"
+      projects: "Projekte"
+      project_components: "Projektkomponenten"
+      suppliers: "Lieferanten"
+      orders: "Bestellungen"
+      documents: "Dokumente"
+      photos: "Bilder"
+      stocks: "Bestandskorrekturen"
+      configuration: "Konfiguration"
+    searchlogic:
+      25_per_page: "25 pro Seite"
+      50_per_page: "50 pro Seite"
+      all: "Alle"
+
+  orders:
+    index:
+      title: "Bestellungen"
+    list:
+      title: "Bestellung"
+      supplier: "Lieferant"
+      count: "Menge"
+      component: "Bauteil"
+      prize: "Einzelpreis"
+      sum: "Summe"
+    edit:
+      title: "Bestellung ändern für "
+      prize_select: "{{prize}} bei {{count}} Stück {{name}} von {{supplier}}"
+      prize: "Preis"
+      count: "Menge"
+      state: "Status"
+      date: "Datum"
+    new:
+      title: "Neue Bestellung für "
+    text:
+      needs: "Bedarf"
+      needs_title: "Bedarf"
+      orders: "bestellt"
+      orders_title: "Bestellungen"
+      orders_at: "bestellt am"
+      supplies: "geliefert"
+      supplies_title: "Lieferungen"
+      supplies_at: "geliefert am"
+
+  order_states:
+    index:
+      title: "Zustandsnamen für Bestellungen"
+      new_order_state: "Neuer Zustandsname für Bestellungen"
+    edit:
+      title: "Zustandsnamen für Bestellungen ändern"
+    new:
+      title: "Neuer Zustandsname für Bestellzustände"
+
+  photos:
+    index:
+      title: "Bilder"
+      new_photo: "Neues Bild"
+    edit:
+      title: "Bild ändern"
+      file: "Bilddatei:"
+    new:
+      title: "Neues Bild"
+      file: "Bilddatei:"
+
+  prizes:
+    index:
+      title: "Preise"
+      component: "Bauteil"
+      prize: "Preis"
+      count: "Menge"
+      supplier: "Lieferant"
+      begin: "Start"
+      end: "Ende"
+    edit:
+      title: "Preis für {{name}} ändern"
+      component: "Bauteil"
+      prize: "Preis"
+      count: "Menge"
+      supplier: "Lieferant"
+      begin: "Start"
+      end: "Ende"
+    new:
+      title: "Preis für {{name}} erstellen"
+
+  projects:
+    index:
+      title: "Projekte"
+      status: "Zustand"
+      new_project: "Neues Projekt anlegen"
+    edit:
+      title: "Projekt {{name}} ändern"
+      all_components: "Alle Projektbauteile"
+      state: "Projektstand"
+      path: "Projektordner"
+    new:
+      title: "Neues Projekt anlegen"
+    list_components:
+      title: "Projektkomponenten für "
+      count: "Menge"
+      housing: "Bauform"
+      category: "Kategorie"
+      stock: "Bestand"
+      auto: "Automatische Bauteilzuordnung"
+      new_component: "Neues Projektbauteil erstellen"
+
+  project_components:
+    index:
+      title: "Projektkomponenten"
+      id: "Id"
+      project: "Projekt"
+      component: "Bauteil"
+      count: "Menge"
+      new_project_component: "Neue Projektkomponente erstellen"
+    edit:
+      title: "Komponente für Projekt {{name}} ändern"
+      component: "Bauteil"
+      count: "Anzahl"
+      project: "Projekt"
+    new:
+      title: "Neue Komponente für Projekt {{name}} erstellen"
+
+  project_states:
+    index:
+      title: "Zustandsnamen für Projekte"
+      new_project_state: "Neuer Zustand für Projekte"
+    edit:
+      title: "Zustandsnamen für Projekte ändern"
+    new:
+      title: "Neuen Zustandsnamen für Projekte erstellen"
+
+  stocks:
+    index:
+      title: "Lagerbestand"
+      component: "Bauteil"
+      housing: "Bauform"
+      count: "Anzahl"
+      new_stock: "Neuen Lagerbestand erstellen"
+    edit:
+      title: "Lagerbestand ändern"
+      component: "Bauteil"
+      count: "Anzahl"
+    new:
+      title: "Neuen Lagerbestand erstellen"
+
+  suppliers:
+    index:
+      title: "Lieferanten"
+      url: "Internetadresse"
+      new_supplier: "Neuen Lieferanten erstellen"
+    edit:
+      title: "Lieferanten ändern"
+      url: "Internetadresse"
+      orders: "Bestellungen"
+      component: "Bauteil"
+      housing: "Bauform"
+      prize: "Preis"
+      count: "Menge"
+      state: "Zustand"
+      date: "Stand"
+      id: "ID"
+    new:
+      title: "Lieferanten erstellen"

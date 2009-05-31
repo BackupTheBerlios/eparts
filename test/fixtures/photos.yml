@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: name1
+  data: data1
+  format: format
+  x: 1
+  y: 2
+
+two:
+  name: name2
+  data: data2
+  format: format
+  x: 11
+  y: 12

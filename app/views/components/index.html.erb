@@ -1,0 +1,31 @@
+<h3><%= t '.title' %></h3>
+
+<table border="0" cellpadding="1">
+  <tr align="left">
+    <th><%= link_to t('name'), :controller => 'components', :sort => 'name' %></th>
+    <th><%= t 'remark' %></th>
+    <th><%= t '.housing' %></th>
+    <th><%= link_to t('components.index.category'), :controller => 'components', :sort => 'component_category_id' %></th>
+    <th><%= t '.stock' %></th>
+    <th><%= t '.order' %></th>
+  </tr>
+
+  <% for c in @components %>
+    <tr>
+      <td><%= link_to c.name, edit_component_path(c) %></td>
+      <td><%=h c.remark %></td>
+      <td><%=h c.component_housing.name %></td>
+      <td><%=h c.component_category.name %></td>
+      <td><%= val_color_tab(c.count) %><%=h c.count %></td>
+      <td>
+        <% if c.order %>
+          <%= order_edit_text(c.order) %></td>
+        <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= render :partial => 'layouts/searchlogic' %>
+<br />
+
+<%= link_to t('components.index.new_component'), new_component_path %>

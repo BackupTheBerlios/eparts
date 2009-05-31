@@ -1,0 +1,26 @@
+<% form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('.state') %><br />
+  <%= select( :project, :project_state_id, ProjectState.find( :all, :order => :id ).collect{ |c| [ c.name, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.label t('.path') %><br />
+    <%= f.text_field :path %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+  <p>
+    <%= link_to t('edit.back'), projects_path %>
+  </p>
+
+  <% if @project_components %>
+    <b><%= link_to t('.all_components'), :action => "list_components", :id => @project %></b>
+  <% end %>
+<% end %>

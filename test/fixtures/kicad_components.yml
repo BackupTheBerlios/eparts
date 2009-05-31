@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: name1
+  kicad_housing_id: 1
+  component_id: 1
+  created_on: 2009-03-25
+  updated_on: 2009-03-25
+
+two:
+  name: name2
+  kicad_housing_id: 1
+  component_id: 1
+  created_on: 2009-03-25
+  updated_on: 2009-03-25

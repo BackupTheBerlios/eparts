@@ -1,0 +1,18 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr>
+  </tr>
+
+<% for blobs_component in @blobs_components %>
+  <tr>
+    <td><%#= link_to 'Show', blobs_component %></td>
+    <td><%#= link_to 'Edit', edit_blobs_component_path(blobs_component) %></td>
+    <td><%#= link_to 'Destroy', blobs_component, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('.new_blob'), new_blobs_component_path %>

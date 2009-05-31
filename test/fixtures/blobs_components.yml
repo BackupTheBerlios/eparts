@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  component_id: 1
+  blob_id: 1
+
+two:
+  component_id: 1
+  blob_id: 2
+
+three:
+  component_id: 2
+  blob_id: 2

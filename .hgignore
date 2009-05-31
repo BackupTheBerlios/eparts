@@ -1,0 +1,10 @@
+syntax: glob
+tmp/**/*
+log/*.log
+db/eparts.sqlite*
+*.DS_Store
+.git
+.gitignore
+log/.gitignore
+tmp/.gitignore
+vendor/.gitignore

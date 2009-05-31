@@ -1,0 +1,6 @@
+- fix functional test
+- fix integration test 
+- improve layout / user accessibility
+- create quick start guide / page
+- auto creation for blobs via component view
+- auto creation for pictures via component view

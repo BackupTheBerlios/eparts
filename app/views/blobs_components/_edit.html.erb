@@ -1,0 +1,14 @@
+<% form_for(@components_blob) do |f| %>
+  <%= f.error_messages %>
+
+  <%= hidden_field_tag "blobs_component[component_id]", @component.id %>
+  <p>
+    <%= f.label t('.file') %><br />
+    <%= f.text_field :blob_id %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%#= link_to t('edit.back'), blobs_components_path %>

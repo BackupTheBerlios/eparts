@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+  <head>
+    <title>eparts</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <%= stylesheet_link_tag "layout" %>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="header">
+       <h3 align="center"><%= t '.title' %></h3>
+      </div>
+      <div id="nav_wrapper">
+        <div id="nav">
+          <p><%= link_to t('.components'), components_path %></p>
+          <p><%= link_to t('.projects'), projects_path %></p>
+          <p><%#= link_to t('.project_components'), project_components_path %></p>
+          <p><%= link_to t('.suppliers'), suppliers_path %></p>
+          <p><%= link_to t('.orders'), orders_path %></p>
+          <p><%= link_to t('.documents'), blobs_path %></p>
+          <p><%= link_to t('.photos'), photos_path %></p>
+          <p><%= link_to t('.stocks'), stocks_path %></p>
+          <p><%= link_to t('.configuration'), configuration_index_path %></p>
+          <p><a href="rails.html">Rails</a></p>
+        </div>
+      </div>
+      <div id="main_wrapper">
+        <div id="main">
+          <%= yield %>
+        </div>
+      </div>
+      <div style="clear: both"></div>
+      <div id="footer">
+        <div style="color: green"><%= flash[:notice] %></div>
+        <div style="color: red"><%= flash[:error] %></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<h3><%= t '.title'%></h3>
+
+<table>
+  <tr align="left">
+    <th><%= t '.supplier' %></th>
+    <th><%= t 'remark' %></th>
+  </tr>
+
+  <tr>
+    <td><%= @orders[0].prize.supplier.name %></td>
+    <td><%= order_state_text(@orders[0]) %></td>
+  </tr>
+</table>
+
+<br />
+
+<table>
+  <tr align="left">
+    <th><%= t '.count' %></th>
+    <th><%= t '.component' %></th>
+    <th><%= t 'remark' %></th>
+    <th><%= t '.prize' %></th>
+    <th><%= t '.sum' %></th>
+  </tr>
+
+  <% for o in @orders %>
+    <tr>
+      <td align="center"><%= link_to o.count, edit_prize_order_path(o.prize, o) %></td>
+      <td><%= link_to o.prize.component.name, edit_component_path(o.prize.component) %></td>
+      <td><%=h o.prize.component.remark %></td>
+      <td align="right"><%= number_to_currency( o.prize.value ) %></td>
+      <td align="right"><%= number_to_currency( o.prize.value * o.count ) %></td>
+    </tr>
+  <% end %>
+
+  <tr>
+    <td><%= t '.sum' %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><%= number_to_currency( @sum ) %></td>
+  </tr>
+</table>

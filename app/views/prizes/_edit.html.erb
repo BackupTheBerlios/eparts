@@ -1,0 +1,34 @@
+<% form_for([@component, @prize]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('.prize') %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label t('.count') %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label t('.begin') %><br />
+    <%= f.date_select :begin %>
+  </p>
+  <p>
+    <%= f.label t('.end') %><br />
+    <%= f.date_select :end %>
+  </p>
+  <p>
+    <%= f.label t('.component') %><br />
+    <%= select( :prize, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
+  </p>
+  <p>
+  <p>
+    <%= f.label t('.supplier') %><br />
+    <%= select( :prize, :supplier_id, Supplier.find(:all, :order => 'name').collect{ |c| [c.name, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), edit_component_path( params[:component_id] ) %>

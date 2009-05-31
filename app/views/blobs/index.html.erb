@@ -1,0 +1,25 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr>
+    <td><%= t '.id' %></td>
+    <td><%= t 'name' %></td>
+    <td><%= t '.used' %></td>
+  </tr>
+  <% for b in @blobs %>
+    <tr>
+      <td><%= link_to b.id, edit_blob_path(b) %></td>
+      <td><%= link_to b.name, url_for( :action => "blob", :id => b ) %></td>
+      <td>
+        <% for c in b.components %>
+          <% if c %><%= c.name %><% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render :partial => 'layouts/searchlogic' %>
+<br />
+
+<%= link_to t('blobs.index.new_blob'), new_blob_path %>

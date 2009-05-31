@@ -1,0 +1,21 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr>
+    <th><%= t '.id' %></th>
+    <th><%= t '.project' %></th>
+    <th><%= t '.component' %></th>
+    <th><%= t '.count' %></th>
+  </tr>
+
+  <% for c in @project_components %>
+    <tr>
+      <td><%= link_to c.id, edit_project_component_path(c) %></td>
+      <td><%= link_to c.project.name, edit_project_path(c.project) %></td>
+      <td><%= link_to c.component.name, edit_component_path(c.component) %></td>
+      <td><%=h c.count %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('project_components.index.new_project_component'), new_project_component_path %>

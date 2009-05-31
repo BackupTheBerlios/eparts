@@ -1,0 +1,17 @@
+<h3><%= t '.title' %><%= @my %></h3>
+
+<table>
+  <tr>
+    <th><%= t 'name' %></th>
+    <th><%= t '.status' %></th>
+  </tr>
+
+  <% for p in @projects %>
+    <tr>
+      <td><%= link_to p.name, edit_project_path(p) %></td>
+      <td><%=h p.project_state.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('projects.index.new_project'), new_project_path %>

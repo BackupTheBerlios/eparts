@@ -1,0 +1,15 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr>
+    <th><%= t 'name' %></th>
+  </tr>
+
+  <% for c in @kicad_housings %>
+    <tr>
+      <td><%= link_to c.name,  edit_kicad_housing_path(c) %></td>
+   </tr>
+  <% end %>
+</table>
+
+<%= link_to t('kicad_housings.index.new_kicad_housing'), new_kicad_housing_path %>

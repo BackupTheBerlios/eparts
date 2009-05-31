@@ -1,0 +1,21 @@
+<% form_for([@project, @project_component]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('.component') %><br />
+    <%= select( :project_component, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.label t('.count') %><br />
+    <%= f.text_field :count %>
+  </p>
+  <p>
+    <%= f.label t('.project') %><br />
+    <%= select( :project_component, :project_id, Project.find(:all, :order => 'name').collect{ |c| [c.name, c.id] } ) %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), edit_project_path( params[:project_id] ) %>

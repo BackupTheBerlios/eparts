@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  value: 9.99
+  quantity: 1
+  component_id: 1
+  supplier_id: 1
+  begin: 2009-03-25
+  end: 2009-03-25
+
+two:
+  value: 0.01
+  quantity: 2
+  component_id: 2
+  supplier_id: 2
+  begin: 2009-03-25
+  end: 2009-03-25

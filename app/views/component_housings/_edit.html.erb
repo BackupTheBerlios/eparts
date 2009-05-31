@@ -1,0 +1,13 @@
+<% form_for(@component_housing) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %Q{#@str} %>
+  </p>
+<% end %>
+
+<%= link_to t('edit.back'), component_housings_path %>

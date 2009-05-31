@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: name1
+  remark: remark1
+  component_category_id: 1
+  component_housing_id: 1
+
+two:
+  name: name2
+  remark: remark2
+  component_category_id: 1
+  component_housing_id: 1

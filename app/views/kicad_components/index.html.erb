@@ -1,0 +1,19 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <tr align="left">
+    <th><%= t 'name' %></th>
+    <th><%= t '.housing' %></th>
+    <th><%= t '.component' %></th>
+  </tr>
+
+  <% for kc in @kicad_components %>
+    <tr>
+      <td><%= link_to kc.name, edit_kicad_component_path(kc) %></td>
+      <td><%= link_to kc.kicad_housing.name, edit_kicad_housing_path(kc.kicad_housing) %></td>
+      <td><%= link_to kc.component.name, edit_component_path(kc.component) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('kicad_components.index.new_kicad_component'), new_kicad_component_path %>

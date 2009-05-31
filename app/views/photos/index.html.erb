@@ -1,0 +1,21 @@
+<h3><%= t '.title' %></h3>
+
+<table>
+  <% for p in @photos %>
+    <tr>
+      <td><%= image_tag( url_for( :action => "image", :id => p ), :alt => p.name, :size => p.geometry(200, 60) ) %></td>
+      <td><%= link_to p.name, edit_photo_path(p) %></td>
+      <td><%=h sprintf( "(%s %d x %d)", p.format, p.x, p.y ) %></td>
+      <td>
+        <% for c in p.components %>
+          <% if c %><%= c.name %><% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render :partial => 'layouts/searchlogic' %>
+<br />
+
+<%= link_to t('photos.index.new_photo'), new_photo_path %>

@@ -1,0 +1,19 @@
+<h1><%= t '.title' %></h1>
+
+<table>
+  <tr>
+    <th><%= t '.component' %></th>
+    <th><%= t '.photo' %></th>
+  </tr>
+
+<% for components_photo in @components_photos %>
+  <tr>
+    <td><%=h components_photo.component_id %></td>
+    <td><%=h components_photo.photo_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('.new_photo'), new_photo_path %>

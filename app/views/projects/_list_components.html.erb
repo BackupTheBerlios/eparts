@@ -1,0 +1,57 @@
+<h3><%= t '.title' %><%= @project.name %></h3>
+
+  <% if @project_components %>
+    <table <% if @pdf %>border="1"<% end %> >
+      <tr align="left">
+        <th><%= t 'name' %></th>
+        <th><%= t 'remark' %></th>
+        <th><%= t '.count' %></th>
+        <th><%= t '.housing' %></th>
+        <th><%= t '.category' %></th>
+        <th>Kicad</th>
+        <th><%= t '.stock' %></th>
+      </tr>
+
+      <% for c in @project_components %>
+        <tr>
+          <td><%= link_to c.component.name, edit_component_path(c.component) %></td>
+          <td><%=h c.component.remark %></td>
+          <td align="center"><%= link_to c.count, edit_project_project_component_path(c.project, c) %></td>
+          <td><%= c.component.component_housing.name %></td>
+          <td><%=h c.component.component_category.name %></td>
+          <td align="center">
+          	<% if @kicad_components.size > 0 %>
+              <%= val_color_tab(c.consider_count) %><%=h c.consider_count %>
+			<% else %>
+			  <font color="red">?</font>
+			<% end %>
+          </td>
+          <td align="center"><%= val_color_tab(c.component_count) %><%=h c.component_count %></td>
+        </tr>
+      <% end %>
+
+      <% @kicad_components.each do |id, kc| %>
+        <% if kc.count > 0 %>
+          <tr>
+            <td><%= kc.name %></td>
+            <td>
+              <% if kc.assign %>
+                <%= link_to kc.assign.name, edit_component_path(kc.assign) %>
+              <% end %>
+            </td>
+            <td align="center"><%= link_to 0, :controller => :project_components, :project_id => @project, :action => "new", :count => kc.count, :component_id => kc.assign %></td>
+            <td><%= kc.housing %></td>
+            <td></td>
+            <td align="center"><%= val_color_tab(-kc.count) %><%= -kc.count %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <% end %>
+
+  <p>
+    <%= link_to t('.auto'), :action => "assign", :id => @project %>
+  </p>
+  <p>
+    <%= link_to t('.new_component'), new_project_project_component_path(@project) %>
+  </p>
