@@ -142,7 +142,8 @@ de:
 
   name: "Name"
   remark: "Bemerkung"
-
+  previous: "Vorherige"
+  next: "Nächste" 
   edit:
     back: "Zurück"
     create: "Erstellen"
@@ -153,7 +154,6 @@ de:
       title: "Dokumente"
       id: "Id"
       used: "Verwendung"
-      new_blob: "Neues Dokument"
     edit:
       title: "Dokument {{name}} ändern"
       file: "Datei:"
@@ -208,7 +208,6 @@ de:
   component_categories:
     index:
       title: "Bauteilkategorien"
-      new_category: "Neue Bauteilkategorie erstellen"
     edit:
       title: "Bauteilkategorie ändern"
     new:
@@ -217,7 +216,6 @@ de:
   component_housings:
     index:
       title: "Gehäusebauformen"
-      new_housing: "Neue Bauform erstellen"
     edit:
       title: "Bauform ändern"
     new:
@@ -238,21 +236,14 @@ de:
   configuration:
     index:
       title: "Konfiguration"
-      housings: "Bauformen"
-      kicad_components: "Kicad-Bauteile"
-      kicad_housings: "Kicad-Bauformen"
-      component_categories: "Bauteilkategorien"
-      order_states: "Best.zustandsnamen"
-      project_states: "Projektzustandsnamen"
 
   kicad_components:
     index:
-      title: "Kicad-Komponenten"
+      title: "Kicad-Bauteile"
       housing: "Bauform"
       component: "Bauteil"
-      new_kicad_component: "Neue Kicad-Komponente anlegen"
     edit:
-      title: "Kicad-Komponente ändern"
+      title: "Kicad-Bauteil ändern"
       housing: "Kicad-Bauform"
       component: "Bauteil"
     new:
@@ -261,28 +252,14 @@ de:
   kicad_housings:
     index:
       title: "Kicad-Gehäusebauformen"
-      new_kicad_housing: "Neue Kicad-Bauform erstellen"
     edit:
-      title: "Kicad-Bauform ändern"
+      title: "Kicad-Gehäusebauform ändern"
     new:
       title: "Neue Kicad-Gehäusebauform erstellen"
 
   layouts:
     application:
       title: "Elektronikprojekte"
-      components: "Bauteile"
-      projects: "Projekte"
-      project_components: "Projektkomponenten"
-      suppliers: "Lieferanten"
-      orders: "Bestellungen"
-      documents: "Dokumente"
-      photos: "Bilder"
-      stocks: "Bestandskorrekturen"
-      configuration: "Konfiguration"
-    searchlogic:
-      25_per_page: "25 pro Seite"
-      50_per_page: "50 pro Seite"
-      all: "Alle"
 
   orders:
     index:
@@ -316,11 +293,10 @@ de:
   order_states:
     index:
       title: "Zustandsnamen für Bestellungen"
-      new_order_state: "Neuer Zustandsname für Bestellungen"
     edit:
       title: "Zustandsnamen für Bestellungen ändern"
     new:
-      title: "Neuer Zustandsname für Bestellzustände"
+      title: "Neuer Zustandsname für Bestellungen"
 
   photos:
     index:
@@ -339,6 +315,8 @@ de:
       component: "Bauteil"
       prize: "Preis"
       count: "Menge"
+      order: "Bestellung"
+      new_order: "bestellen"
       supplier: "Lieferant"
       begin: "Start"
       end: "Ende"
@@ -393,7 +371,6 @@ de:
   project_states:
     index:
       title: "Zustandsnamen für Projekte"
-      new_project_state: "Neuer Zustand für Projekte"
     edit:
       title: "Zustandsnamen für Projekte ändern"
     new:
@@ -401,11 +378,10 @@ de:
 
   stocks:
     index:
-      title: "Lagerbestand"
+      title: "Bestandskorrekturen"
       component: "Bauteil"
       housing: "Bauform"
       count: "Anzahl"
-      new_stock: "Neuen Lagerbestand erstellen"
     edit:
       title: "Lagerbestand ändern"
       component: "Bauteil"

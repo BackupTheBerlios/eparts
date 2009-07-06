@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th><%= t '.id' %></th>
-    <th><%= t '.project' %></th>
-    <th><%= t '.component' %></th>
-    <th><%= t '.count' %></th>
+    <th><%= order( @search, :by => :id, :as => t('.id') ) %></th>
+    <th><%= order( @search, :by => :project_name, :as => t('.project') ) %></th>
+    <th><%= order( @search, :by => :component_name, :as => t('.component') ) %></th>
+    <th><%= order( @search, :by => :count, :as => t('.count') ) %></th>
   </tr>
 
   <% for c in @project_components %>
@@ -17,5 +17,9 @@
     </tr>
   <% end %>
 </table>
+
+<br />
+<%= will_paginate @project_components, :prev_label => t('previous'), :next_label => t('next') %>
+<br />
 
 <%= link_to t('project_components.index.new_project_component'), new_project_component_path %>

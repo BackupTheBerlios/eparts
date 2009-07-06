@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th><%= t 'name' %></th>
-    <th><%= t '.url' %></th>
+    <th><%= order( @search, :by => :name, :as => t('name') ) %></th>
+    <th><%= order( @search, :by => :url, :as => t('.url') ) %></th>
   </tr>
 
   <% for s in @suppliers %>
@@ -13,5 +13,8 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate @suppliers, :prev_label => t('previous'), :next_label => t('next') %>
+<br />
 
 <%= link_to t('.new_supplier'), new_supplier_path %>

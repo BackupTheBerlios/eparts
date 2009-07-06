@@ -2,7 +2,11 @@ class KicadComponentsController < ApplicationController
   # GET /kicad_components
   # GET /kicad_components.xml
   def index
-    @kicad_components = KicadComponent.find( :all, :order => :name )
+    @search = KicadComponent.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_name" )
+    end
+    @kicad_components = @search.paginate( :page => params[:page], :per_page => 25 )
 
     respond_to do |format|
       format.html # index.html.erb

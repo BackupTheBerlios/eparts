@@ -46,5 +46,7 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :de
 end
 
+require 'will_paginate'
+
 Mime::Type.register 'application/pdf', :pdf
 require 'htmldoc'

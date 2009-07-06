@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
+    @search = Project.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_name" )
+    end
+    @projects = @search.paginate( :page => params[:page], :per_page => 10 )
 
     respond_to do |format|
       format.html # index.html.erb

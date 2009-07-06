@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <td><%= t '.prize' %></th>
+    <td><%= t '.count' %></th>
+    <td><%= t '.order' %></td>
+    <td><%= t '.supplier' %></th>
+    <td><%= t '.begin' %></th>
+    <td><%= t '.end' %></th>
+  </tr>
+
+  <% for p in @prizes %>
+    <tr>
+      <td><%= link_to number_to_currency( p.value ), edit_component_prize_path(p.component, p) %></td>
+      <td><%=h p.quantity %></td>
+      <td>
+        <% if order_state(p.order) %>
+          <%= link_to order_edit_text(p.order) , edit_prize_order_path(p, p.order) %>
+        <% else %>
+          <%= link_to t( '.new_order' ), new_prize_order_path(p) %>
+        <% end %>
+      </td>
+      <td><%= link_to p.supplier.name, edit_supplier_path(p.supplier) %></td>
+      <td><%= l p.begin %></td>
+      <td><%= l p.end %></td>
+    </tr>
+  <% end %>
+</table>

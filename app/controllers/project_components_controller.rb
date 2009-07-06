@@ -2,7 +2,11 @@ class ProjectComponentsController < ApplicationController
   # GET /project_components
   # GET /project_components.xml
   def index
-    @project_components = ProjectComponent.all
+    @search = ProjectComponent.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_id" )
+    end
+    @project_components = @search.paginate( :page => params[:page], :per_page => 25 )
 
     respond_to do |format|
       format.html # index.html.erb

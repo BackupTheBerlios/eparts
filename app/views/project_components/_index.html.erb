@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td><%= t '.project' %></td>
+    <td><%= t '.count' %></td>
+  </tr>
+
+  <% for p in @project_components %>
+    <tr>
+      <td><%= link_to p.project.name, edit_project_path(p.project) %></td>
+      <td><%=h p.count %></td>
+    </tr>
+  <% end %>
+</table>

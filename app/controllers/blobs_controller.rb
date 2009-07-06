@@ -2,10 +2,11 @@ class BlobsController < ApplicationController
   # GET /blobs
   # GET /blobs.xml
   def index
-    @search = Blob.new_search( params[:search] )
-    #@search.order_by = :name
-    @blobs, @blobs_count = @search.all, @search.count
-    #@blobs = Blob.find( :all, :order => 'name' )
+    @search = Blob.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_id" )
+    end
+    @blobs = @search.paginate( :page => params[:page], :per_page => 10 )
 
     respond_to do |format|
       format.html # index.html.erb

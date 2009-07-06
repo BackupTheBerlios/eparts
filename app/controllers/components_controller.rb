@@ -4,16 +4,12 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.xml
   def index
-    if params[:sort]
-      sort = params[:sort]
-    else
-      sort = 'name'
+    @search = Component.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_name" )
     end
+    @components = @search.paginate( :page => params[:page], :per_page => 25 )
 
-    @search = Component.new_search( params[:search] )
-    @search.order_by = sort
-    @components, @components_count = @search.all, @search.count
-    #@components = Component.find( :all, :order => sort )
     for c in @components
       c.count = ComponentsHelper::stock_count( c, false )
     end

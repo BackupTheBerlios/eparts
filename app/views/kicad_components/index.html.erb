@@ -2,9 +2,9 @@
 
 <table>
   <tr align="left">
-    <th><%= t 'name' %></th>
-    <th><%= t '.housing' %></th>
-    <th><%= t '.component' %></th>
+    <th><%= order( @search, :by => :name, :as => t('name') ) %></th>
+    <th><%= order( @search, :by => :kicad_housing_name, :as => t('.housing') ) %></th>
+    <th><%= order( @search, :by => :component_name, :as => t('.component') ) %></th>
   </tr>
 
   <% for kc in @kicad_components %>
@@ -16,4 +16,8 @@
   <% end %>
 </table>
 
-<%= link_to t('kicad_components.index.new_kicad_component'), new_kicad_component_path %>
+<br />
+<%= will_paginate @kicad_components, :prev_label => t('previous'), :next_label => t('next') %>
+<br />
+
+<%= link_to t('kicad_components.new.title'), new_kicad_component_path %>

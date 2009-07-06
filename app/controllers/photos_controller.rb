@@ -2,9 +2,11 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
-    @search = Photo.new_search( params[:search] )
-    @photos, @photos_count = @search.all, @search.count
-    #@photos = Photo.find( :all, :order => 'name' )
+    @search = Photo.search( params[:search] )
+    if( !params[:search] )
+      @search = @search.order( "ascend_by_name" )
+    end
+    @photos = @search.paginate( :page => params[:page], :per_page => 10 )
 
     respond_to do |format|
       format.html # index.html.erb

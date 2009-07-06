@@ -47,70 +47,19 @@
       <td colspan="2">
         <% if @kicad_components %>
           <b><%= t '.all_kicad' %></b>
-          <table>
-            <tr>
-              <td><%= t 'name' %></td>
-              <td><%= t '.housing' %></td>
-            </tr>
-
-            <% for kc in @kicad_components %>
-              <tr>
-                <td><%= link_to kc.name, edit_kicad_component_path(kc) %></td>
-                <td><%= link_to kc.kicad_housing.name, edit_kicad_housing_path(kc.kicad_housing) %></td>
-              </tr>
-            <% end %>
-          </table>
+          <%= render :partial => 'kicad_components/index' %>
         <% end %>
 
         <% if @prizes %>
           <br />
           <b><%= t '.all_prizes' %></b>
-          <table>
-            <tr>
-              <td><%= t '.prize' %></td>
-              <td><%= t '.count' %></td>
-              <td><%= t '.order' %></td>
-              <td><%= t '.supplier' %></td>
-              <td><%= t '.begin' %></td>
-              <td><%= t '.end' %></td>
-            </tr>
-
-            <% for p in @prizes %>
-              <tr>
-                <td><%= link_to number_to_currency( p.value ), edit_component_prize_path(p.component, p) %></td>
-                <td><%=h p.quantity %></td>
-                <td>
-                  <% if order_state(p.order) %>
-                    <%= link_to order_edit_text(p.order) , edit_prize_order_path(p, p.order) %>
-                  <% else %>
-                    <%= link_to t( '.new_order' ), new_prize_order_path(p) %>
-                  <% end %>
-                </td>
-                <td><%= link_to p.supplier.name, edit_supplier_path(p.supplier) %></td>
-                <td><%= l p.begin %></td>
-                <td><%= l p.end %></td>
-                <td></td>
-              </tr>
-            <% end %>
-          </table>
+          <%= render :partial => 'prizes/index' %>
         <% end %>
 
         <% if @project_components %>
           <br />
           <b><%= t '.all_projects' %></b>
-          <table>
-            <tr>
-              <td><%= t '.project' %></td>
-              <td><%= t '.count' %></td>
-            </tr>
-
-            <% for p in @project_components %>
-              <tr>
-                <td><%= link_to p.project.name, edit_project_path(p.project) %></td>
-                <td><%=h p.count %></td>
-              </tr>
-            <% end %>
-          </table>
+          <%= render :partial => 'project_components/index' %>
         <% end %>
 
         <p>

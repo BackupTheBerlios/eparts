@@ -2,10 +2,10 @@
 
 <table border="0" cellpadding="1">
   <tr align="left">
-    <th><%= link_to t('name'), :controller => 'components', :sort => 'name' %></th>
+    <th><%= order( @search, :by => :name, :as => t('name') ) %></th>
     <th><%= t 'remark' %></th>
-    <th><%= t '.housing' %></th>
-    <th><%= link_to t('components.index.category'), :controller => 'components', :sort => 'component_category_id' %></th>
+    <th><%= order( @search, :by => :component_housing_name, :as => t('.housing') ) %></th>
+    <th><%= order( @search, :by => :component_category_name, :as => t('components.index.category') ) %></th>
     <th><%= t '.stock' %></th>
     <th><%= t '.order' %></th>
   </tr>
@@ -25,7 +25,7 @@
   <% end %>
 </table>
 
-<%= render :partial => 'layouts/searchlogic' %>
+<%= will_paginate @components, :prev_label => t('previous'), :next_label => t('next') %>
 <br />
 
 <%= link_to t('components.index.new_component'), new_component_path %>

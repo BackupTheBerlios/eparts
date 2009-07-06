@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td><%= t 'name' %></td>
+    <td><%= t '.housing' %></td>
+  </tr>
+
+  <% for kc in @kicad_components %>
+    <tr>
+      <td><%= link_to kc.name, edit_kicad_component_path(kc) %></td>
+      <td><%= link_to kc.kicad_housing.name, edit_kicad_housing_path(kc.kicad_housing) %></td>
+    </tr>
+  <% end %>
+</table>

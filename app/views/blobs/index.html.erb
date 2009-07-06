@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <td><%= t '.id' %></td>
-    <td><%= t 'name' %></td>
+    <td><%= order( @search, :by => :id, :as =>  t('.id') ) %></td>
+    <td><%= order( @search, :by => :name, :as => t('name') ) %></td>
     <td><%= t '.used' %></td>
   </tr>
   <% for b in @blobs %>
@@ -19,7 +19,7 @@
   <% end %>
 </table>
 
-<%= render :partial => 'layouts/searchlogic' %>
+<%= will_paginate @blobs, :prev_label => t('previous'), :next_label => t('next') %>
 <br />
 
-<%= link_to t('blobs.index.new_blob'), new_blob_path %>
+<%= link_to t('blobs.new.title'), new_blob_path %>
