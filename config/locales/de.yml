@@ -143,7 +143,8 @@ de:
   name: "Name"
   remark: "Bemerkung"
   previous: "Vorherige"
-  next: "Nächste" 
+  next: "Nächste"
+  component: "Bauteil"
   edit:
     back: "Zurück"
     create: "Erstellen"
@@ -174,18 +175,16 @@ de:
   components:
     index:
       title: "Bauteile"
-      housing: "Bauform"
       category: "Kategorie"
+      housing: "Bauform"
       stock: "Bestand"
       order: "Bestellung"
-      new_component: "Neues Bauteil anlegen"
     edit:
       title: "Bauteil {{name}} ändern"
       category: "Bauteilkategorie"
       housing: "Bauform"
       stock: "Bestand einschliesslich Bestellungen: "
       all_kicad: "Alle Kicad-Bauteile"
-      housing: "Bauform"
       all_prizes: "Alle Bauteilpreise"
       prize: "Preis"
       count: "Menge"
@@ -195,11 +194,8 @@ de:
       end: "Ende"
       all_projects: "Alle Projektverwendungen"
       project: "Projekt"
-      new_kicad_component: "Neues Kicad-Bauteil erstellen"
       new_prize: "Neuen Preis erstellen"
       stock_path: "Bestandskorrektur"
-      new_photo: "Neues Bild"
-      new_blob: "Neues Dokument"
       current_order: "{{count}} Stück {{order}}"
       new_order: "bestellen"
     new:
@@ -224,7 +220,6 @@ de:
   components_photos:
     index:
       title: "Alle Bauteilbilder"
-      component: "Bauteil"
       photo: "Bild"
       new_photo: "Neues Bauteilbild anlegen"
     edit:
@@ -240,12 +235,9 @@ de:
   kicad_components:
     index:
       title: "Kicad-Bauteile"
-      housing: "Bauform"
-      component: "Bauteil"
+      housing: "Kicad-Bauform"
     edit:
       title: "Kicad-Bauteil ändern"
-      housing: "Kicad-Bauform"
-      component: "Bauteil"
     new:
       title: "Neue Kicad-Komponente erstellen"
 
@@ -268,7 +260,6 @@ de:
       title: "Bestellung"
       supplier: "Lieferant"
       count: "Menge"
-      component: "Bauteil"
       prize: "Einzelpreis"
       sum: "Summe"
     edit:
@@ -301,7 +292,6 @@ de:
   photos:
     index:
       title: "Bilder"
-      new_photo: "Neues Bild"
     edit:
       title: "Bild ändern"
       file: "Bilddatei:"
@@ -322,7 +312,6 @@ de:
       end: "Ende"
     edit:
       title: "Preis für {{name}} ändern"
-      component: "Bauteil"
       prize: "Preis"
       count: "Menge"
       supplier: "Lieferant"
@@ -334,8 +323,8 @@ de:
   projects:
     index:
       title: "Projekte"
-      status: "Zustand"
       new_project: "Neues Projekt anlegen"
+      status: "Zustand"
     edit:
       title: "Projekt {{name}} ändern"
       all_components: "Alle Projektbauteile"
@@ -357,12 +346,10 @@ de:
       title: "Projektkomponenten"
       id: "Id"
       project: "Projekt"
-      component: "Bauteil"
       count: "Menge"
       new_project_component: "Neue Projektkomponente erstellen"
     edit:
       title: "Komponente für Projekt {{name}} ändern"
-      component: "Bauteil"
       count: "Anzahl"
       project: "Projekt"
     new:
@@ -379,26 +366,22 @@ de:
   stocks:
     index:
       title: "Bestandskorrekturen"
-      component: "Bauteil"
       housing: "Bauform"
       count: "Anzahl"
     edit:
       title: "Lagerbestand ändern"
-      component: "Bauteil"
       count: "Anzahl"
     new:
-      title: "Neuen Lagerbestand erstellen"
+      title: "Neue Bestandskorrektur erstellen"
 
   suppliers:
     index:
       title: "Lieferanten"
       url: "Internetadresse"
-      new_supplier: "Neuen Lieferanten erstellen"
     edit:
       title: "Lieferanten ändern"
       url: "Internetadresse"
       orders: "Bestellungen"
-      component: "Bauteil"
       housing: "Bauform"
       prize: "Preis"
       count: "Menge"
@@ -406,4 +389,4 @@ de:
       date: "Stand"
       id: "ID"
     new:
-      title: "Lieferanten erstellen"
+      title: "Neuen Lieferanten erstellen"

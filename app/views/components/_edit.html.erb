@@ -36,9 +36,7 @@
         <% end %>
 
         <% for b in @component.blobs %>
-          <p>
-            <%= link_to b.name, url_for( :action => "blob", :id => b ) %>
-          </p>
+          <p><%= link_to b.name, url_for( :action => "blob", :id => b ) %></p>
         <% end %>
       </td>
     </tr>
@@ -64,11 +62,11 @@
 
         <p>
           <%= link_to t('edit.back'), components_path %>
-          <%= link_to t('.new_kicad_component'), new_component_kicad_component_path(@component) %>
+          <%= link_to t('kicad_components.new.title'), new_component_kicad_component_path(@component) %>
           <%= link_to t('.new_prize'), new_component_prize_path(@component) %>
           <%= link_to t('.stock_path'), new_component_stock_path(@component) %>
-          <%= link_to t('.new_photo'), new_component_components_photo_path(@component) %>
-          <%= link_to t('.new_blob'), new_component_blobs_component_path(@component) %>
+          <%= link_to t('photos.new.title'), new_component_components_photo_path(@component) %>
+          <%= link_to t('blobs.new.title'), new_component_blobs_component_path(@component) %>
         </p>
       </td>
     </tr>

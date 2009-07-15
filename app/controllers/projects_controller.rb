@@ -7,25 +7,44 @@ class ProjectsController < ApplicationController
   # GET /projects.xml
   def index
     @search = Project.search( params[:search] )
-    if( !params[:search] )
+
+    if params[:search]
+      if !params[:search][:order]
+        @search = @search.order( "ascend_by_name" )
+
+        if params[:search].strip.length > 0
+          params[:search].split.collect do |word|
+            @search = @search.name_contains( word )
+          end
+        end
+
+      end
+    else
       @search = @search.order( "ascend_by_name" )
     end
-    @projects = @search.paginate( :page => params[:page], :per_page => 10 )
+
+    @projects = @search.paginate( :page => params[:page], :per_page => 25 )
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      if request.xhr?
+        render :layout => false and return
+      end
+      format.html
+      format.xml { render :xml => @projects }
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.xml
+  def _index
+    index
+  end
+
+  # GET /projects/_row
   def show
-    @project = Project.find( params[:id] )
+    @search = Project.search( params[:search] )
+    @projects = @search.paginate( :page => params[:page], :per_page => 25 )
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.html { render :index }
     end
   end
 
@@ -34,6 +53,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
 
+    puts "new"
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @project }

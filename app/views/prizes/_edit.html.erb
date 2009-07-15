@@ -18,7 +18,7 @@
     <%= f.date_select :end %>
   </p>
   <p>
-    <%= f.label t('.component') %><br />
+    <%= f.label t('component') %><br />
     <%= select( :prize, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
   </p>
   <p>

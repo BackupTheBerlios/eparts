@@ -1,20 +1,14 @@
 <h3><%= t '.title' %><%= @my %></h3>
 
-<table>
-  <tr>
-    <th><%= order( @search, :by => :name, :as => t('name') ) %></th>
-    <th><%= order( @search, :by => :project_state_name, :as => t('.status') ) %></th>
-  </tr>
-
-  <% for p in @projects %>
-    <tr>
-      <td><%= link_to p.name, edit_project_path(p) %></td>
-      <td><%=h p.project_state.name %></td>
-    </tr>
-  <% end %>
-</table>
-
-<%= will_paginate @projects, :prev_label => t('previous'), :next_label => t('next') %>
+<%= text_field :search, :name_contains, :size => 10 %>
+<div id="results">
+  <%= render :partial => 'index' %> 
+</div>
 <br />
-
 <%= link_to t('projects.index.new_project'), new_project_path %>
+
+<%= observe_field 'search_name_contains',
+                  :frequency => 0.5,
+                  :update => 'results',
+                  :url => { :controller => 'projects', :action => '_index' },
+                  :with => "'search=' + escape(value)" %>

@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th align="left"><%= order( @search, :by => :name, :as => t('name') ) %></th>
+    <th><%= order( @search, :by => :project_state_name, :as => t('.status') ) %></th>
+  </tr>
+
+  <% for p in @projects %>
+    <tr>
+      <td><%= link_to p.name, edit_project_path(p) %></td>
+      <td><%=h p.project_state.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @components, :prev_label => t('previous'), :next_label => t('next'),
+									:params => { :search => @search.conditions } %>

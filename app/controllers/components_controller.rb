@@ -5,9 +5,22 @@ class ComponentsController < ApplicationController
   # GET /components.xml
   def index
     @search = Component.search( params[:search] )
-    if( !params[:search] )
+
+    if params[:search]
+      if !params[:search][:order]
+        @search = @search.order( "ascend_by_name" )
+
+        if params[:search].strip.length > 0
+          params[:search].split.collect do |word|
+            @search = @search.name_contains( word )
+          end
+        end
+
+      end
+    else
       @search = @search.order( "ascend_by_name" )
     end
+
     @components = @search.paginate( :page => params[:page], :per_page => 25 )
 
     for c in @components
@@ -15,19 +28,29 @@ class ComponentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @components }
+      if request.xhr?
+        render :layout => false and return
+      end
+      format.html
+      format.xml { render :xml => @components }
     end
   end
 
-  # GET /components/1
-  # GET /components/1.xml
+  def _index
+    index
+  end
+
+  # GET /components/_row
   def show
-    @component = Component.find(params[:id])
+    @search = Component.search( params[:search] )
+    @components = @search.paginate( :page => params[:page], :per_page => 25 )
+
+    for c in @components
+      c.count = ComponentsHelper::stock_count( c, false )
+    end
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @component }
+      format.html { render :index }
     end
   end
 

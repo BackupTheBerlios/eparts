@@ -6,11 +6,11 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label t('.housing') %><br />
+    <%= f.label t('kicad_components.index.housing') %><br />
     <%= select( :kicad_component, :kicad_housing_id, KicadHousing.find(:all, :order => 'name').collect{ |c| [c.name, c.id] } ) %>
   </p>
   <p>
-    <%= f.label t('.component') %><br />
+    <%= f.label t('kicad_components.index.component') %><br />
     <%= select( :kicad_component, :component_id, Component.find(:all, :order => 'name').collect{ |c| [%Q{#{c.name} #{c.remark} #{c.component_housing.name}}, c.id] } ) %>
   </p>
   <p>

@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "gettext"
-  config.gem "searchlogic"
+  config.gem "searchlogic", :version => '2.1.5', :source => "http://github.com/binarylogic/searchlogic/tree/master"
 
   config.log_level = :info
 

@@ -4,13 +4,13 @@
   <tr>
     <th><%= order( @search, :by => :id, :as => t('.id') ) %></th>
     <th><%= order( @search, :by => :project_name, :as => t('.project') ) %></th>
-    <th><%= order( @search, :by => :component_name, :as => t('.component') ) %></th>
+    <th><%= order( @search, :by => :component_name, :as => t('component') ) %></th>
     <th><%= order( @search, :by => :count, :as => t('.count') ) %></th>
   </tr>
 
   <% for c in @project_components %>
     <tr>
-      <td><%= link_to c.id, edit_project_component_path(c) %></td>
+      <td><%= link_to c.id, edit_project_project_component_path(c.project, c) %></td>
       <td><%= link_to c.project.name, edit_project_path(c.project) %></td>
       <td><%= link_to c.component.name, edit_component_path(c.component) %></td>
       <td><%=h c.count %></td>
